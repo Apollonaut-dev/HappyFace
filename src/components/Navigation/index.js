@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
+import classes from './index.css';
+
 import { Link } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
   AppBar,
   Toolbar,
@@ -21,28 +23,8 @@ import {
 
 import * as ROUTES from '../../constants/routes';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: "1rem",
-  },
-  title: {
-    flexGrow: 1,
-  },
-  list: {
-    width: '12rem',
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'black'
-  }
-}));
-
 export default function Navigation() {
   const [drawerState, toggleDrawer] = useState(false);
-  const classes = useStyles();
 
   return (
     <div className={classes.root}>
