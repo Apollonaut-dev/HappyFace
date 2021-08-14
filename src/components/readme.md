@@ -1,0 +1,1 @@
+components folder holds components that implement one specific feature (e.g. user feed, card feed, single card chain, and profile settings editor);

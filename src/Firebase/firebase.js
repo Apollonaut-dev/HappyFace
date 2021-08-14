@@ -1,6 +1,6 @@
-import app from 'firebase/app';
+import firebase from 'firebase/firebase';
 import 'firebase/auth';
-import 'firebase/database';
+import 'firebase/firestore';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,10 +14,10 @@ const config = {
 class Firebase {
   static instance;
   constructor() {
-    app.initializeApp(config);
+    firebase.initializeApp(config);
 
-    this.auth = app.auth();
-    this.db = app.database();
+    this.auth = firebase.auth();
+    this.db = firebase.database();
     Firebase.instance = this;
   }
 
@@ -29,8 +29,10 @@ class Firebase {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then(user => {
         // check db
-        // console.log(user);
-      });
+        console.log('signin success');
+        console.log(user);
+      })
+      .catch(e => console.log('error', e));
   }
 }
 

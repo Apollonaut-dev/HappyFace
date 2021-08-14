@@ -5,14 +5,14 @@ import { Redirect } from 'react-router-dom';
 
 import { AuthUserContext } from '../../Auth';
 
-import Signin from '../../components/Signin';
+import Signup from '../../components/Signup';
 
-function Auth() {
+function Registration() {
   return (
     <AuthUserContext.Consumer>
-      {authState => authState ? <Redirect to={ROUTES.FEED} /> : <Signin />}
+      {authState => authState ? <Redirect to={ROUTES.FEED} /> : <Signup />}
     </AuthUserContext.Consumer>
   );
 }
 
-export default Auth;
+export default Registration;
