@@ -65,7 +65,14 @@ export default function Navigation() {
                 <ListItem>
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
-                    <Link className={classes.link} to={'/profile'}>Profile</Link>
+                    <Link className={classes.link} to={'/profile'}>My Profile</Link>
+                  </ListItemText>
+                </ListItem>
+                {/* link 3 */}
+                <ListItem>
+                  <ListItemIcon><ListIcon /></ListItemIcon>
+                  <ListItemText>
+                    <Link className={classes.link} to={'/accSettings'}>Account Settings</Link>
                   </ListItemText>
                 </ListItem>
               </List>

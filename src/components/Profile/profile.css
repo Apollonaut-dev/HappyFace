@@ -1,0 +1,44 @@
+.settings {
+    max-width: 600px;
+    min-width: 300px;
+    min-height: 600px;
+    margin: auto;
+}
+
+.profile {
+    margin-left: -5%;
+}
+
+@media only screen and (max-width: 450px) {
+    .profile {
+        margin-left: -10%;
+    }
+}
+
+.option {
+    font-size: small;
+}
+
+.opButton {
+    padding: 10px;
+    margin: auto;
+    
+}
+
+.subheading {
+    border-top: 1px solid #bbb;
+    min-width: 200px;
+    max-width: 400px;
+    
+}
+
+@media only screen and (max-width: 450px) {
+    .textField {
+        max-width: 220px;
+        max-height: 20px;
+    }
+}
+
+.textField {
+    width: 400px;
+}
