@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './feed.css';
+import classes from './feed.module.css';
 import { object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
 import { shadows, FormRow } from '@material-ui/system';
 
