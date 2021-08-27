@@ -72,14 +72,14 @@ export default function Navigation() {
                 <ListItem>
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
-                    <Link className={classes.link} to={'/accSettings'}>Account Settings</Link>
+                    <Link className={classes.link} to={'/account'}>Account Settings</Link>
                   </ListItemText>
                 </ListItem>
               </List>
             }
           </Drawer>
           <Typography variant="h6" className={classes.title}>
-            Happy Face
+            Happey Face
           </Typography>
         </Toolbar>
       </AppBar>

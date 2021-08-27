@@ -5,74 +5,63 @@ import { shadows, FormRow } from '@material-ui/system';
 import { withStyles } from '@material-ui/core/styles';
 
 const StyledButton = withStyles({
-  root: {
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
+    root: {
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
+    label: {
+        textTransform: 'capitalize',
+    },
 })(Button);
 
 
 
 export default function (props) {
-  return (
-    <div>
-      
-      <Box boxShadow={3} borderRadius={5} className={classes.settings}>
-      <p style={{fontSize: 24, paddingTop: 20}}>
-        Edit My profile
+    return (
+        <div>
+
+            <Box boxShadow={3} borderRadius={5} className={classes.settings}>
+                <p style={{ fontSize: 24, paddingTop: 20 }}>
+                    My Profile
       </p>
-      <div className="classes profile">
-        <ul>
-          <li><div className={classes.optionDiv}>
-          <TextField
-              className={classes.textField}
-              id="email"
-              label="Email"
-              defaultValue=""
-              variant="outlined"
-            />
-            <Button variant="contained" color="grey" className={classes.opButton}>Save</Button>
-            </div></li>
-            <br></br>
-            <li><div className={classes.optionDiv}>
-            <TextField
-              className={classes.textField}
-              id="phoneNum"
-              label="Phone Number"
-              defaultValue=""
-              variant="outlined"
-            />
-            <Button variant="contained" color="grey" className={classes.opButton}>Save</Button>
-          </div></li>
-          <br></br>
-          <li><div className={classes.optionDiv}>
-            <TextField
-              className={classes.textField}
-              id="outlined-password-input"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="outlined"
-            />
-            <Button variant="contained" color="grey" className={classes.opButton}>Save</Button>
-          </div></li>
-          <br></br>
-          <hr className={classes.subheading}></hr>
-          <br></br>
-          <li><div className="classes opButton"><Button variant="contained" color="grey" className="classes option" >Payment methods</Button></div></li>
-          <br></br>
-        </ul>
-      </div>
-      </Box>
-    </div>
-  )
+                <div className="classes profileDiv">
+                    <ul>
+                        <div className="classes profileMainDiv">
+                            <h1>
+                                PFP here
+            </h1>
+                            <h2>PFN here
+
+            </h2>
+                            <h3>
+                                Bio here
+            </h3>
+                            <ul>
+                                {listItems}
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </Box>
+        </div>
+    )
 }
 
-{/*  */}
+var posts = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+];
+
+const listItems = posts.map((number) =>
+    <div>
+        <Box boxShadow={3} borderRadius={5} className={classes.postsBox}>
+            {posts}
+        </Box>
+    </div>
+
+);
+
+

@@ -9,32 +9,15 @@
     margin: auto;
 }
 
-.posts {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.postsBox {
-    max-width: 150px;
-    min-width: 150px;
-    min-height: 150px;
-}
-
 .opButton {
     display:inline-block; 
     right: 3%;
     top: 10%;
 }
 
-.profileDiv {
+.account {
     margin-top: auto;
     margin-left: -5%;
-}
-
-.profileMainDiv {
-    position: relative;
-    margin-left: -50%;
 }
 
 .optionDiv { 

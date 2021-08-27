@@ -12,6 +12,7 @@ import { AuthUserContext } from './Auth';
 import Navigation from './components/Navigation';
 import Auth from './pages/Auth';
 import Feed from './pages/Feed';
+import Account from './pages/Account';
 import Profile from './pages/Profile';
 
 
@@ -33,6 +34,7 @@ function App({ firebase }) {
               <Container className={classes.root}>
                 <Route exact path={ROUTES.ROOT} component={Feed} />
                 <Route path={'/profile'} component={Profile} />
+                <Route path={'/account'} component={Account} />
               </Container>
             </BrowserRouter>
             :
