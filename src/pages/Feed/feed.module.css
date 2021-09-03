@@ -1,0 +1,34 @@
+.post {
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    margin: auto;   
+}
+
+.profile {
+    margin-left: -90%;
+}
+
+.pfp {
+    
+}
+
+.pfn {
+
+}
+
+.picture {
+    min-height: 200px;
+}
+
+.lcs {
+    margin-left: -68%;
+}
+
+.comment {
+    
+}
+
+li {
+    display: inline;
+}

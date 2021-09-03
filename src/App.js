@@ -20,7 +20,10 @@ import Navigation from './components/Navigation';
 
 /* Primary App Pages*/
 import Feed from './pages/Feed';
-// import Cards from './pages/Cards'; 
+
+// import Cards from './pages/Cards'; =
+import Account from './pages/Account';
+
 import Profile from './pages/Profile';
 
 
@@ -75,6 +78,7 @@ function App({ firebase, history }) {
             </Route> */}
           </Switch>
         </BrowserRouter>
+
       </AuthUserContext.Provider>
     </div>
   );

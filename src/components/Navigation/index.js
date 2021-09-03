@@ -53,6 +53,7 @@ function Navigation({ firebase }) {
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
                     <Link className={classes.link} to={ROUTES.PROFILE}>Profile</Link>
+
                   </ListItemText>
                 </ListItem>
               </List>
