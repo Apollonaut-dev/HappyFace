@@ -1,0 +1,29 @@
+.formWrapper {
+  /* width: 100%; */
+  margin: 2rem auto;
+  width: 30rem;
+  padding: 1rem;
+}
+
+.SignUpForm {
+  /* width: 20rem; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+}
+
+.SignUpForm > * {
+  margin: 1rem;
+}
+
+.formControl {
+  width: 100%;
+  padding: 1rem;
+}
+
+.SignUpForm > button {
+  margin: 2rem;
+}

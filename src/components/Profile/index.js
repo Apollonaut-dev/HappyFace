@@ -1,5 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function(props) {
-  return <div>Profile page</div>;
+  const { profileId } = useParams();
+  return (
+    <>
+      {!profileId ? <div>Own profile</div> : <div>someone else's profile: {profileId}</div>}
+    </>
+  );
 }

@@ -28,11 +28,18 @@ class Firebase {
   signInWithEmailAndPassword = (email, password) => {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then(user => {
-        // check db
+        // TODO check db
         console.log('signin success');
-        console.log(user);
       })
       .catch(e => console.log('error', e));
+  }
+
+  signUpWithEmailAndPassword = (email, password) => {
+    return this.auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  signOut = () => {
+    return this.auth.signOut();
   }
 }
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -9,6 +11,7 @@ import Firebase, { FirebaseContext } from './Firebase';
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseContext.Provider value={new Firebase()}>
+      <CssBaseline />
       <App />
     </FirebaseContext.Provider>
   </React.StrictMode>,
