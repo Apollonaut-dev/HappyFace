@@ -24,7 +24,7 @@ const StyledButton = withStyles({
 
 export default function (props) {
     const { profileId } = useParams();
-    if (profileId) { consol.log('someone else\'s profile')} else { console.log ('own profile')}
+    if (profileId) { console.log('someone else\'s profile')} else { console.log ('own profile')}
     return (
         <div>
 

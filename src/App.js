@@ -95,6 +95,7 @@ function PrivateRoute({ authState, children, ...rest }) {
             {console.log('rendering...location: ', location)}
             <main>
               {children}
+              <h1>Hello</h1>
             </main>
           </>
         ) : (
