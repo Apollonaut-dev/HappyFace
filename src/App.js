@@ -30,12 +30,10 @@ import Profile from './pages/Profile';
 function App({ firebase, history }) {
   const [authState, updateAuthState] = useState(null);
 
-  // firebase.auth.onAuthStateChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
-  // useEffect(() => firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null)), []);
-  firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
+  useEffect(() => firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null)), []);
+  // firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
   return (
     <div className="App">
-      Hello
       <AuthUserContext.Provider value={authState}>
         <BrowserRouter>
           <Switch>
