@@ -35,6 +35,7 @@ function App({ firebase, history }) {
   firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
   return (
     <div className="App">
+      Hello
       <AuthUserContext.Provider value={authState}>
         <BrowserRouter>
           <Switch>
@@ -43,42 +44,17 @@ function App({ firebase, history }) {
             <PrivateRoute path={ROUTES.PROFILE} authState={authState}>
               <Profile />
             </PrivateRoute>
-            {/* <Route path={ROUTES.PROFILE} authState={authState}>
-              {authState ?
-                <>
-                  <Navigation />
-                  <main>
-                    <Profile />
-                    <Link to={'/profile/123'}>Profile</Link>
-                  </main>
-                </>
-                :
-                <Redirect to={ROUTES.AUTH} />}
-            </Route> */}
             <PrivateRoute path={ROUTES.FEED} authState={authState}>
               <Feed />
             </PrivateRoute>
-            {/* <Route path={ROUTES.FEED} authState={authState}>
-              {authState ?
-                <>
-                  <Navigation />
-                  <main>
-                    <Feed />
-                  </main>
-                </>
-                :
-                <Redirect to={ROUTES.AUTH} />}
-            </Route> */}
-            {/* <Route path={ROUTES.ROOT}>
+            <Route path={ROUTES.ROOT}>
               {authState && <Navigation />}
               <main>
                 <h1>404</h1>
-                <Redirect to={ROUTES.AUTH} />
               </main>
-            </Route> */}
+            </Route>
           </Switch>
         </BrowserRouter>
-
       </AuthUserContext.Provider>
     </div>
   );
