@@ -45,6 +45,7 @@ function App({ firebase, history }) {
             <PrivateRoute path={ROUTES.FEED} authState={authState}>
               <Feed />
             </PrivateRoute>
+            {/* catch-all route */}
             <Route path={ROUTES.ROOT}>
               {authState && <Navigation />}
               <main>
