@@ -1,6 +1,6 @@
-import firebase from 'firebase/firebase';
-import 'firebase/auth';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onIdTokenChanged } from 'firebase/auth';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,10 +14,10 @@ const config = {
 class Firebase {
   static instance;
   constructor() {
-    firebase.initializeApp(config);
+    this.app = initializeApp(config);
 
-    this.auth = firebase.auth();
-    this.db = firebase.database();
+    this.auth = getAuth();
+    this.db = getFirestore();
     Firebase.instance = this;
   }
 
@@ -26,20 +26,28 @@ class Firebase {
   }
 
   signInWithEmailAndPassword = (email, password) => {
-    return this.auth.signInWithEmailAndPassword(email, password)
-      .then(user => {
-        // TODO check db
-        console.log('signin success');
-      })
-      .catch(e => console.log('error', e));
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   signUpWithEmailAndPassword = (email, password) => {
-    return this.auth.createUserWithEmailAndPassword(email, password);
+    return createUserWithEmailAndPassword(this.auth, email, password)
   }
 
   signOut = () => {
     return this.auth.signOut();
+  }
+
+  authStateChangeListener = (cb) => {
+    const unsubscribe = onIdTokenChanged(this.auth, cb);
+    return unsubscribe;
+  }
+
+  addPost(post) {
+    addDoc(collection(this.db, "posts"), post)
+      .then((u) => {
+        addDoc(collection(this.db, "users"), { posts: [...u.posts, u.id] })
+      })
+      .catch(console.log)
   }
 }
 

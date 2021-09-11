@@ -1,12 +1,10 @@
 import React from 'react';
-import classes from './feed.module.css';
-import { object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
-import { shadows, FormRow } from '@material-ui/system';
+import { Box } from '@material-ui/core'
 
 const posts = [1, 2, 3, 4, 5];
 
-const listItems = posts.map((number) =>
-    <li>
+const listItems = posts.map((number, i) =>
+    <li key={i}>
 
         <br></br>
         <Box boxShadow={3} borderRadius={5} className="classes post">
