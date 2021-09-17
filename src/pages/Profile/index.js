@@ -1,18 +1,22 @@
 import React from 'react';
-import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import Profile from '../../components/Profile';
 
 export default function ProfilePage(props) {
-  let { path } = useRouteMatch();
+  const { path, url } = useRouteMatch();
+  const { profileId } = useParams();
+  console.log('path: ', path);
+  
   return (
     <Switch>
-      <Route exact path={`/profile/:profileId`}>
+      <Route path={`${path}/:profileId`}>
+        someone else's profileID: {profileId}
         <Profile />
       </Route>
-      <Route exact path={'/profile'}>
-        <Link to='/profile/123'>some profile</Link>
-        <Profile />
+      <Route path={path}>
+        <Link to={`${url}/123`}>some profile</Link>
+        <Profile profileId={profileId}/>
       </Route>
     </Switch>
   );

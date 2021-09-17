@@ -1,13 +1,9 @@
 import React from 'react';
 
-import classes from './App.css';
-
 import * as ROUTES from './constants/routes';
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
-
-import { Container } from '@material-ui/core';
 
 import { withFirebase } from './Firebase';
 import { AuthUserContext } from './Auth';
@@ -21,21 +17,21 @@ import Navigation from './components/Navigation';
 /* Primary App Pages*/
 import Feed from './pages/Feed';
 
-// import Cards from './pages/Cards'; =
-import Account from './pages/Account';
-
 import Profile from './pages/Profile';
+
+import Post from './models/Post';
 
 
 function App({ firebase, history }) {
   const [authState, updateAuthState] = useState(null);
 
-  // firebase.auth.onAuthStateChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
-  // useEffect(() => firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null)), []);
-  firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
+  useEffect(() => {
+    // returns unsubscribe function
+    return firebase.authStateChangeListener(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null))
+  }, [firebase]);
+
   return (
     <div className="App">
-      Hello
       <AuthUserContext.Provider value={authState}>
         <BrowserRouter>
           <Switch>
@@ -47,6 +43,7 @@ function App({ firebase, history }) {
             <PrivateRoute path={ROUTES.FEED} authState={authState}>
               <Feed />
             </PrivateRoute>
+            {/* catch-all route */}
             <Route path={ROUTES.ROOT}>
               {authState && <Navigation />}
               <main>
@@ -71,7 +68,6 @@ function PrivateRoute({ authState, children, ...rest }) {
             {console.log('rendering...location: ', location)}
             <main>
               {children}
-              <h1>Hello</h1>
             </main>
           </>
         ) : (

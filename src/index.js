@@ -6,11 +6,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Firebase, { FirebaseContext } from './Firebase';
+import { FirebaseContext, firebaseInstance } from './Firebase';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseContext.Provider value={new Firebase()}>
+    <FirebaseContext.Provider value={firebaseInstance}>
       <CssBaseline />
       <App />
     </FirebaseContext.Provider>

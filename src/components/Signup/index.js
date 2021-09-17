@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import classes from './index.module.css';
 
+import * as ROUTES from '../../constants/routes';
+
+import User from '../../models/User';
+
 import {
   Paper,
   Button,
@@ -38,8 +42,14 @@ function Signup({ firebase, history }) {
       // otherwise update error state
       updateValidationErrors({ ...validationErrors, ...errors });
     } else {
-      firebase.signUpWithEmailAndPassword(formData.email, formData.password)
-        .then(() => history.push('/'))
+      firebase.signUpWithEmailAndPassword(formData.email, formData.password, formData.name)
+        .then((u) => {
+          console.log(formData);
+          return User.create(u.user.uid, formData.email, formData.name);
+        })
+        .then(() => {
+          history.push(ROUTES.FEED)
+        })
         .catch(error => {
           errors.password = null;
           errors.email = null;
@@ -62,7 +72,7 @@ function Signup({ firebase, history }) {
               errors.email = error.message;
               break;
             default:
-              throw new Error('500: Server error. Unknown error when attempting to signup');
+              throw new Error(error);
           }
           updateValidationErrors({ ...validationErrors, ...errors });
         });

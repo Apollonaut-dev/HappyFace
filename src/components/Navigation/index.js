@@ -7,6 +7,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 import {
   AppBar,
+  Box,
   Toolbar,
   Typography,
   IconButton,
@@ -53,7 +54,6 @@ function Navigation({ firebase }) {
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
                     <Link className={classes.link} to={ROUTES.PROFILE}>Profile</Link>
-
                   </ListItemText>
                 </ListItem>
               </List>
@@ -64,21 +64,23 @@ function Navigation({ firebase }) {
               Happy Face
             </Link>
           </Typography>
-          <IconButton color='inherit'>
-            <Notifications />
-          </IconButton>
-          <IconButton color='inherit'>
-            <Link to={ROUTES.PROFILE}>
-              <AccountCircle style={{color: 'white', transform: 'translateY(2px)'}} />
-            </Link>
-          </IconButton>
-          <IconButton
-            className={classes.SignoutButton}
-            onClick={() => firebase.signOut().then(() => history.replace(ROUTES.AUTH))}
-            color='inherit'
-          >
-            <ExitToApp />
-          </IconButton>
+          <Box>
+            <IconButton color='inherit'>
+              <Notifications />
+            </IconButton>
+            <IconButton color='inherit'>
+              <Link to={ROUTES.PROFILE}>
+                <AccountCircle style={{ color: 'white', transform: 'translateY(2px)' }} />
+              </Link>
+            </IconButton>
+            <IconButton
+              className={classes.SignoutButton}
+              onClick={() => firebase.signOut().then(() => history.replace(ROUTES.AUTH))}
+              color='inherit'
+            >
+              <ExitToApp />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </div>

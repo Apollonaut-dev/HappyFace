@@ -5,6 +5,7 @@ import { shadows, FormRow } from '@material-ui/system';
 import Post from 'C:/Users/matte/OneDrive/Stuff/Projects/HappeyFace/HappyFace/src/components/Post'
 import CreatePost from '../../components/CreatePost';
 
+
 const posts = [{
     user: {
         name: 'Matteo',
@@ -64,6 +65,7 @@ const posts = [{
 const listItems = posts.map((post) =>
         <Post post={post}>        
         </Post>
+
 );
 
 export default function Feed(props) {

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import { useHistory, useLocation } from 'react-router-dom';
 
-import classes from './index.module.css';
-
 import * as ROUTES from '../../constants/routes';
 import { Link as RouteLink } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
@@ -62,7 +60,7 @@ function Signin({ firebase }) {
                 updateLoadingState(true);
                 firebase.signInWithEmailAndPassword(email, password)
                   .then(() => history.replace(from.pathname))
-                  .catch(updateError);
+                  .catch(e => updateError(e) || updateLoadingState(false));
               }}
             >
               Sign in
