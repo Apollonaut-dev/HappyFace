@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onIdTokenChanged } from 'firebase/auth';
 
 const config = {
@@ -40,14 +40,6 @@ class Firebase {
   authStateChangeListener = (cb) => {
     const unsubscribe = onIdTokenChanged(this.auth, cb);
     return unsubscribe;
-  }
-
-  addPost(post) {
-    addDoc(collection(this.db, "posts"), post)
-      .then((u) => {
-        addDoc(collection(this.db, "users"), { posts: [...u.posts, u.id] })
-      })
-      .catch(console.log)
   }
 }
 

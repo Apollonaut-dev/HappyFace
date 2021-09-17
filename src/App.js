@@ -19,6 +19,8 @@ import Feed from './pages/Feed';
 
 import Profile from './pages/Profile';
 
+import Post from './models/Post';
+
 
 function App({ firebase, history }) {
   const [authState, updateAuthState] = useState(null);
