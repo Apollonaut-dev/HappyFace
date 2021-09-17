@@ -2,50 +2,76 @@ import React from 'react';
 import classes from './feed.module.css';
 import { object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
 import { shadows, FormRow } from '@material-ui/system';
+import Post from 'C:/Users/matte/OneDrive/Stuff/Projects/HappeyFace/HappyFace/src/components/Post'
+import CreatePost from '../../components/CreatePost';
 
-const posts = [1, 2, 3, 4, 5];
+const posts = [{
+    user: {
+        name: 'Matteo',
+        avatarUrl: './test.jpg'
+    },
+    postContentUrls: ["./test.jpg"],
+    text: "Downtown Night City just after noon, what a site.",
+    likes: 43,
+    shares: 12,
+    comments: [{
+        user: "Matteo",
+        comment: "What a view!"
+    },
+    {
+        user: "Anthony",
+        comment: "Nice!"
+    },
+    {
+        user: "Joe",
+        comment: "Amazing!"
+    },
+    {
+        user: "Lucas",
+        comment: "Beautiful!"
+    },
+    ]
+},
+{
+    user: {
+        name: 'Anthony',
+        avatarUrl: './test2.jpg'
+    },
+    postContentUrls: ["./test2.jpg"],
+    text: "Downtown Night City just after noon, what a site.",
+    likes: 52,
+    shares: 9,
+    comments: [{
+        user: "Matteo",
+        comment: "What a view!"
+    },
+    {
+        user: "Anthony",
+        comment: "Nice!"
+    },
+    {
+        user: "Joe",
+        comment: "Amazing!"
+    },
+    {
+        user: "Lucas",
+        comment: "Beautiful!"
+    },
+    ]
+},
+]
 
-const listItems = posts.map((number) =>
-    <li>
-
-        <br></br>
-        <Box boxShadow={3} borderRadius={5} className="classes post">
-            <div>
-                <div className="classes profile">
-                    <ul>
-                        <li className="classes pfp">PFP </li>
-                        <li className="classes pfn">PFN </li>
-                    </ul>
-                </div>
-
-
-                <h1 className="classes picture">
-                    Picture(s) Here
-                </h1>
-
-                <div className="classes lcs"> {/*Like Comment Share*/}
-                    <ul>
-                        <li>Like </li>
-                        <li>Comment </li>
-                        <li>Share </li>
-                    </ul>
-                </div>
-
-                <div className="classes comment">
-                    <ul>
-
-                    </ul>
-                </div>
-
-            </div>
-        </Box>
-    </li>
+const listItems = posts.map((post) =>
+        <Post post={post}>        
+        </Post>
 );
 
 export default function Feed(props) {
     return (
-        <div>
-            <ul>{listItems}</ul>
-        </div>
+        // <div>
+        //     <ul>{listItems}</ul>
+        // </div>
+        <CreatePost/>
     );
 };
+
