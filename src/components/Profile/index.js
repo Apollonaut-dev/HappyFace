@@ -9,27 +9,12 @@ import { withStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/sty
 import { CardMedia, Avatar, Paper, CardHeader } from '@material-ui/core';
 import { Divider } from '@material-ui/core';
 
-const StyledButton = withStyles({
-    root: {
-        borderRadius: 3,
-        border: 0,
-        color: 'white',
-        height: 48,
-        padding: '0 30px',
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
-    label: {
-        textTransform: 'capitalize',
-    },
-})(Button);
-
 const user = {
     avatarUrl: './test.jpg',
     fname: 'Matteo',
     lname: 'De Vellis',
     email: 'example@email.com'
 }
-
 
 export default function (props) {
 

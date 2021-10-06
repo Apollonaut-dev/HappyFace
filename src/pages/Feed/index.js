@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './feed.module.css';
 import { object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
 import { shadows, FormRow } from '@material-ui/system';
-import Post from 'C:/Users/matte/OneDrive/Stuff/Projects/HappeyFace/HappyFace/src/components/Post'
+import Post from '../../components/Post'
 import CreatePost from '../../components/CreatePost';
 
 const posts = [{
