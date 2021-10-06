@@ -1,31 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import classes from './profile.module.css';
-import { TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
-import { shadows, FormRow } from '@material-ui/system';
-import { withStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core'
 
-const StyledButton = withStyles({
-  root: {
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
-})(Button);
+import User from '../../models/User';
 
-
-
-export default function (props) {
-
-  const { profileId } = useParams();
+export default function Profile({ profileId }) {
+ const [user, updateUser] = useState(null);
+  
   if (profileId) { console.log('someone else\'s profile') } else { console.log('own profile') }
+  useEffect(() => {
+    User.readById('yRn3fIw07kQSbQ1Kfi3NlAXkexm2')
+    .then(updateUser);
+  }, []);
+  
   return (
     <div>
 
@@ -37,10 +26,10 @@ export default function (props) {
           <ul>
             <div className="classes profileMainDiv">
               <h1>
-                PFP here
+                
               </h1>
-              <h2>PFN here
-
+              <h2>
+                {user ? user.name : null}
               </h2>
               <h3>
                 Bio here

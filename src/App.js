@@ -15,11 +15,10 @@ import Registration from './pages/Registration';
 import Navigation from './components/Navigation';
 
 /* Primary App Pages*/
-import Feed from './pages/Feed';
-
 import Profile from './pages/Profile';
+import Feed from './pages/Feed';
+import Initiatives from './pages/Initiatives';
 
-import Post from './models/Post';
 
 
 function App({ firebase, history }) {
@@ -43,7 +42,16 @@ function App({ firebase, history }) {
             <PrivateRoute path={ROUTES.FEED} authState={authState}>
               <Feed />
             </PrivateRoute>
+            <PrivateRoute path={ROUTES.INITIATIVES} authState={authState}>
+
+            </PrivateRoute>
+            <PrivateRoute path={ROUTES.CARDS} authState={authState}>
+
+            </PrivateRoute>
             {/* catch-all route */}
+            <Route exact path={ROUTES.ROOT}>
+              <Redirect to={ROUTES.AUTH} />
+            </Route>
             <Route path={ROUTES.ROOT}>
               {authState && <Navigation />}
               <main>

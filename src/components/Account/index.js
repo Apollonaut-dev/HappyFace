@@ -1,26 +1,8 @@
 import React from 'react';
 import classes from './account.module.css';
-import { TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, object, ObjectsRow, item, Container, Box, ListItem, List, ListItemText, Grid } from '@material-ui/core'
-import { shadows, FormRow } from '@material-ui/system';
-import { withStyles } from '@material-ui/core/styles';
+import { TextField, Button, Box } from '@material-ui/core'
 
-const StyledButton = withStyles({
-  root: {
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
-})(Button);
-
-
-
-export default function (props) {
+export default function () {
   return (
     <div>
       
@@ -75,5 +57,3 @@ export default function (props) {
     </div>
   )
 }
-
-{/*  */}
