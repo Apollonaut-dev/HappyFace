@@ -26,6 +26,7 @@ import Account from './pages/Account';
 
 import Profile from './pages/Profile';
 
+import PostCreate from './pages/PostCreate';
 
 function App({ firebase, history }) {
   const [authState, updateAuthState] = useState(null);
@@ -35,7 +36,6 @@ function App({ firebase, history }) {
   firebase.auth.onIdTokenChanged(authUser => authUser ? updateAuthState(authUser) : updateAuthState(null));
   return (
     <div className="App">
-      Hello
       <AuthUserContext.Provider value={authState}>
         <BrowserRouter>
           <Switch>
@@ -46,6 +46,9 @@ function App({ firebase, history }) {
             </PrivateRoute>
             <PrivateRoute path={ROUTES.FEED} authState={authState}>
               <Feed />
+            </PrivateRoute>
+            <PrivateRoute path={ROUTES.POSTCREATE} authState={authState}>
+              <PostCreate />
             </PrivateRoute>
             <Route path={ROUTES.ROOT}>
               {authState && <Navigation />}
@@ -71,7 +74,6 @@ function PrivateRoute({ authState, children, ...rest }) {
             {console.log('rendering...location: ', location)}
             <main>
               {children}
-              <h1>Hello</h1>
             </main>
           </>
         ) : (

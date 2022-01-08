@@ -3,3 +3,4 @@ export const FEED = '/feed';
 export const AUTH = '/auth';
 export const REGISTRATION = '/registration';
 export const PROFILE = '/profile';
+export const POSTCREATE = '/postcreate';

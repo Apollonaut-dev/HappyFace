@@ -11,10 +11,13 @@ const config = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 }
 
+firebase.initializeApp(config);
+
+const storage = firebase.storage();
+
 class Firebase {
   static instance;
   constructor() {
-    firebase.initializeApp(config);
 
     this.auth = firebase.auth();
     this.db = firebase.database();
@@ -43,4 +46,4 @@ class Firebase {
   }
 }
 
-export default Firebase;
+export {storage, Firebase as default };
