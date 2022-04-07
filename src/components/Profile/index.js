@@ -17,7 +17,6 @@ const user = {
 }
 
 export default function (props) {
-
   const { profileId } = useParams();
   if (profileId) { console.log('someone else\'s profile') } else { console.log('own profile') }
   return (
