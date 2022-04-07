@@ -1,0 +1,54 @@
+.textField {
+    width: 400px;
+}
+
+.settings {
+    max-width: 600px;
+    min-width: 300px;
+    min-height: 600px;
+    margin: auto;
+}
+
+.opButton {
+    display:inline-block; 
+    right: 3%;
+    top: 10%;
+}
+
+.account {
+    margin-top: auto;
+    margin-left: -5%;
+}
+
+.optionDiv { 
+    position: relative;   
+}
+
+.textField {
+    display:inline-block;margin-right:10px;
+    width: 425px;
+    right: 5%;
+}
+
+.subheading {
+    border-top: 1px solid #bbb;
+    max-width: 500px;
+    position: relative;
+    right: 3%;
+}
+
+.subheading {
+    border-top: 1px solid #bbb;
+    max-width: 500px;
+}
+
+@media only screen and (max-width: 400px) {
+    .textField {
+        max-width: 240px;
+        right: 5%;
+    }
+    .subheading {
+        max-width: 300px;
+        
+    }
+}

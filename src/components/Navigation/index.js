@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes';
 
-import { makeStyles } from '@material-ui/core/styles';
+import classes from './index.module.css';
+
+import { useHistory, Link } from 'react-router-dom';
+
 import {
   AppBar,
   Toolbar,
@@ -13,41 +16,25 @@ import {
   ListItemIcon,
   ListItemText
 } from '@material-ui/core';
+
 import {
   Menu as MenuIcon,
   List as ListIcon,
-  Edit as EditIcon
+  ExitToApp,
+  AccountCircle,
+  Notifications
 } from '@material-ui/icons';
 
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../../Firebase';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: "1rem",
-  },
-  title: {
-    flexGrow: 1,
-  },
-  list: {
-    width: '12rem',
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'black'
-  }
-}));
-
-export default function Navigation() {
+function Navigation({ firebase }) {
+  const history = useHistory();
   const [drawerState, toggleDrawer] = useState(false);
-  const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.Toolbar}>
           <IconButton onClick={() => toggleDrawer(true)} edge="start" className={classes.menuButton} color="inherit">
             <MenuIcon />
           </IconButton>
@@ -58,24 +45,44 @@ export default function Navigation() {
                 <ListItem>
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
-                    <Link className={classes.link} to={ROUTES.ROOT}>Home</Link>
+                    <Link className={classes.link} to={ROUTES.FEED}>Home</Link>
                   </ListItemText>
                 </ListItem>
                 {/* link 2 */}
                 <ListItem>
                   <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText>
-                    <Link className={classes.link} to={'/profile'}>Profile</Link>
+                    <Link className={classes.link} to={ROUTES.PROFILE}>Profile</Link>
+
                   </ListItemText>
                 </ListItem>
               </List>
             }
           </Drawer>
           <Typography variant="h6" className={classes.title}>
-            Happy Face
+            <Link variant="inherit" to={ROUTES.FEED} className={classes.logo}>
+              Happy Face
+            </Link>
           </Typography>
+          <IconButton color='inherit'>
+            <Notifications />
+          </IconButton>
+          <IconButton color='inherit'>
+            <Link to={ROUTES.PROFILE}>
+              <AccountCircle style={{color: 'white', transform: 'translateY(2px)'}} />
+            </Link>
+          </IconButton>
+          <IconButton
+            className={classes.SignoutButton}
+            onClick={() => firebase.signOut().then(() => history.replace(ROUTES.AUTH))}
+            color='inherit'
+          >
+            <ExitToApp />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+export default withFirebase(Navigation);
